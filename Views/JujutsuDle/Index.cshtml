@@ -1,0 +1,124 @@
+@model List<JujutsuDle.Models.GuessResultViewModel>
+@inject ICharacterService _characterService
+@{
+    ViewData["Title"] = "Jujutsu-dle";
+    var answer = ViewData["Answer"] as Character;
+    var lastGuess = Model.LastOrDefault();
+    var isGameWon = answer != null && lastGuess?.GuessedName == answer.Name;
+    var isGameOver = isGameWon;
+}
+
+<div class="game-container">
+<div class="text-center">
+    <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
+        <h1>Jujutsu-dle</h1>
+        <form asp-controller="JujutsuDle" asp-action="Restart" method="post">
+            <button type="submit" class="btn btn-sm btn-outline-secondary">Reiniciar Jogo</button>
+        </form>
+    </div>
+    <p>Adivinhe o personagem de Jujutsu Kaisen! Tentativas: @Model.Count</p>
+</div>
+
+@if (!isGameOver)
+{
+    <div class="autocomplete-container">
+        <form id="guessForm" asp-action="Guess" method="post" class="my-3" autocomplete="off">
+            <div class="input-group">
+                <input id="characterName" name="characterName" class="form-control" placeholder="Digite um nome..." required />
+                <button type="submit" class="btn btn-primary">Adivinhar</button>
+            </div>
+        </form>
+        <div id="autocomplete-results" class="autocomplete-items"></div>
+    </div>
+}
+else
+{
+    <div class="alert @(isGameWon ? "alert-success" : "alert-danger")">
+            <strong>Parabéns! Você acertou! O personagem era @answer.Name.</strong>
+    </div>
+}
+
+<div>
+    <div class="grid-container">
+        <div class="grid-header">Foto</div>
+        <div class="grid-header">Nome</div>
+
+        <div class="grid-header">Gênero</div>
+        <div class="grid-header">Afiliação(ões)</div>
+        <div class="grid-header">Espécie</div>
+        <div class="grid-header">Classificação</div>
+        <div class="grid-header">Estilo Combate</div>
+        <div class="grid-header">Ano Estreia</div>
+    </div>
+
+    @foreach (var guess in Model)
+{
+    <div class="grid-container">
+        <div class="grid-cell @(guess.GuessedName == answer?.Name ? "correct" : "incorrect")">
+            @if (!string.IsNullOrEmpty(guess.PhotoUrl))
+            {
+                <img src="@guess.PhotoUrl" alt="@guess.GuessedName" class="history-photo" />
+            }
+        </div>
+        <div class="grid-cell @(guess.GuessedName == answer?.Name ? "correct" : "incorrect")">
+            @guess.GuessedName
+        </div>
+
+        <div class="grid-cell @guess.Gender.ToString().ToLower()">@guess.GenderValue</div>
+        <div class="grid-cell @guess.Affiliations.ToString().ToLower()">@guess.AffiliationsValue</div>
+        <div class="grid-cell @guess.Species.ToString().ToLower()">@guess.SpeciesValue</div>
+        <div class="grid-cell @guess.Classification.ToString().ToLower()">@guess.ClassificationValue</div>
+        <div class="grid-cell @guess.CombatStyle.ToString().ToLower()">@guess.CombatStyleValue</div>
+        <div class="grid-cell @guess.DebutYear.ToString().ToLower()">@guess.DebutYearValue @guess.DebutYearArrow</div>
+    </div>
+}
+</div>
+</div>
+
+@section Scripts {
+    <script>
+        const characterNames = @Html.Raw(Json.Serialize(ViewBag.AllCharacterNames));
+        
+        const inputField = document.getElementById('characterName');
+        const resultsContainer = document.getElementById('autocomplete-results');
+
+        inputField.addEventListener('keyup', function() {
+            const inputText = this.value;
+            resultsContainer.innerHTML = '';
+
+            if (!inputText) {
+                resultsContainer.style.display = 'none'; 
+            }
+
+            const suggestions = characterNames.filter(function(name) {
+                return name.toUpperCase().includes(inputText.toUpperCase());
+            });
+
+            if(suggestions.length > 0) {
+                resultsContainer.style.display = 'block';
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+
+            suggestions.forEach(function(suggestion) {
+                const suggestionDiv = document.createElement('DIV');
+                suggestionDiv.innerHTML = suggestion;
+
+                suggestionDiv.addEventListener('click', function() {
+                    inputField.value = this.innerHTML; 
+                    resultsContainer.innerHTML = '';  
+                    resultsContainer.style.display = 'none';
+                });
+
+                resultsContainer.appendChild(suggestionDiv);
+            });
+        });
+
+        document.addEventListener('click', function (e) {
+            if (e.target !== inputField) {
+                resultsContainer.innerHTML = '';
+                resultsContainer.style.display = 'none';
+            }
+        });
+    </script>
+}
