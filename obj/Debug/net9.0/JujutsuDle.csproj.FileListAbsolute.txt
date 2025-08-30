@@ -93,4 +93,5 @@ C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\JujutsuDle.pdb
 C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\JujutsuDle.genruntimeconfig.cache
 C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\ref\JujutsuDle.dll
 C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\compressed\jt8w8tfw33-3r8b2a0bt1.gz
-C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\compressed\ia7iqcpq3g-yhsecjdh1x.gz
+C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\JujutsuDle.sourcelink.json
+C:\Users\gusta\Documents\JJKdle\JujutsuDle\obj\Debug\net9.0\compressed\ia7iqcpq3g-1i5e3e4mi5.gz
