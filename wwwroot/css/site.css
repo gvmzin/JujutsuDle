@@ -1,3 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&family=Noto+Sans:wght@400;700&display=swap');
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+
+main {
+    flex-grow: 1;
+}
+body {
+    background-color: #0d1117;
+    background-image: linear-gradient(rgba(13, 17, 23, 0.842), rgb(13, 17, 23)), url('https://imgs.search.brave.com/o40u_yZv-_NCkEuOe1ci7oWBP03breGoxAI_5v8-h48/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDgxMDI2/ODYuanBn');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #c9d1d9;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+h1 {
+    font-family: 'Train One', cursive;
+    color: #f0f6fc;
+    text-shadow: 0 0 5px rgba(255, 82, 82, 0.7);
+}
+
+
+.btn-primary {
+    background-color: #c91c4a;
+    border-color: #ff2d64;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #ff2d64;
+    border-color: #ff2d64;
+}
+.btn-outline-secondary {
+    color: #8b949e;
+    border-color: #30363d;
+}
+.btn-outline-secondary:hover {
+    color: #f0f6fc;
+    background-color: #30363d;
+    border-color: #8b949e;
+}
+.form-control {
+    background-color: #010409;
+    border-color: #30363d;
+    color: #f0f6fc;
+}
+.form-control::placeholder {
+    color: #8b949e;
+}
+.form-control:focus {
+    background-color: #010409;
+    color: #f0f6fc;
+    border-color: #c91c4a;
+    box-shadow: 0 0 0 0.25rem rgba(201, 28, 74, 0.25);
+}
+
 .game-container {
     max-width: 1100px; 
     margin: 0 auto;
@@ -6,19 +74,20 @@
 .grid-container {
     display: grid;
     grid-template-columns: 110px 1.5fr repeat(6, 1fr);
-    gap: 8px; 
+    gap: 8px;
     margin-bottom: 8px;
-    align-items: center; 
+    align-items: center;
 }
 
 .grid-header {
     font-weight: bold;
-    background-color: #333;
-    color: white;
+    background-color: rgba(36, 41, 47, 0.8);
+    color: #f0f6fc;
     padding: 10px;
     text-align: center;
     border-radius: 4px;
-    white-space: nowrap; 
+    border: 1px solid #30363d;
+    white-space: nowrap;
 }
 
 .grid-cell {
@@ -26,17 +95,18 @@
     color: white;
     text-align: center;
     border-radius: 8px;
-    min-height: 120px;
-    font-size: 1rem; 
+    min-height: 120px; 
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    transition: background-color 0.5s ease;
+    transition: all 0.5s ease;
+    border: 1px solid transparent;
 }
 
 .history-photo {
-    width: 100px;
+    width: 100px; 
     height: 100px;
     object-fit: cover;
     object-position: center top;
@@ -45,24 +115,24 @@
 }
 
 .correct {
-    background-color: #28a745; 
+    background-color: #238636;
+    border-color: #3fb950;
 }
-
 .partial {
-    background-color: #ffc107; 
+    background-color: #9e6a03;
+    border-color: #f1e05a;
 }
-
 .incorrect {
-    background-color: #ff0000; 
+    background-color: #720000;
+    border-color: #ff0000;
 }
 
 .autocomplete-container {
     position: relative;
 }
-
 .autocomplete-items {
     position: absolute;
-    border: 1px solid #d4d4d4;
+    border: 1px solid #30363d;
     border-top: none;
     z-index: 99;
     top: 100%;
@@ -70,17 +140,91 @@
     right: 0;
     max-height: 250px;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: #0d1117;
 }
-
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    border-bottom: 1px solid #d4d4d4;
-    color: #333;
+    border-bottom: 1px solid #21262d;
+    color: #c9d1d9;
     text-align: left;
 }
-
 .autocomplete-items div:hover {
-    background-color: #e9e9e9;
+    background-color: #161b22;
+}
+
+.site-header {
+    padding: 15px 0;
+    background-color: #010409; /* Um preto um pouco mais suave que o corpo */
+    border-bottom: 1px solid #30363d; /* Linha sutil para separar do conteúdo */
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaço entre o logo e o texto */
+    font-family: 'Train One', cursive; /* Usando nossa fonte temática */
+    font-size: 1.5rem;
+    color: #f0f6fc;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    color: #f0f6fc;
+    opacity: 0.8;
+}
+
+.logo-img {
+    height: 60px; /* Tamanho do logo */
+}
+
+.nav-links a {
+    color: #8b949e;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #c91c4a; /* Cor de destaque ao passar o mouse */
+}
+
+/* --- Footer --- */
+.site-footer {
+    margin-top: 5rem;
+    padding: 2rem 0;
+    background-color: #010409;
+    border-top: 1px solid #30363d;
+    color: #8b949e;
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    color: #8b949e;
+    font-size: 1.5rem; /* Tamanho dos ícones */
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Necessário para o 'transform' */
+}
+
+.social-icons a:hover {
+    color: #f0f6fc; /* Cor mais clara ao passar o mouse */
+    transform: translateY(-3px); /* Efeito de levantar o ícone */
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    max-width: 600px;
+    margin: 1rem auto; /* Centraliza e adiciona espaço */
+    opacity: 0.7; /* Deixa o texto de aviso um pouco mais sutil */
 }

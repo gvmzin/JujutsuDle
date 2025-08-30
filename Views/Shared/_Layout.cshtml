@@ -6,40 +6,42 @@
     <title>@ViewData["Title"] - JujutsuDle</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JujutsuDle.styles.css" asp-append-version="true" />
+    
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JujutsuDle</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <header class="site-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="logo-link" asp-area="" asp-controller="JujutsuDle" asp-action="Index">
+                <img src="https://imgs.search.brave.com/5Oixa6YVwW6oYGB9Jk-l5orwZmscFTdfqDLnXQLe-8U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMTUvSnVq/dXRzdS1LYWlzZW4t/TG9nby1QTkctSW1h/Z2VzLnBuZw" alt="Logo Escola Jujutsu" class="logo-img" />
+            </a>
+            <nav class="nav-links">
+                <a href="https://github.com/coderj001/jujutsu-kaisen-api" target="_blank" title="API Original">
+                    <i class="fa-brands fa-github"></i> API
+                </a>
+            </nav>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+        <div class="container main-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="site-footer">
         <div class="container">
-            &copy; 2025 - JujutsuDle - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="social-icons">
+                <a href="https://github.com/gvmzin" target="_blank" title="gvmzin"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="disclaimer">
+                Jujutsu-dle é um projeto de um fã sem fins lucrativos. Todos os personagens e nomes de Jujutsu Kaisen são propriedade de Gege Akutami, Shueisha e estúdio MAPPA.
+            </p>
+            <p>
+                &copy; 2025 - gvmzin
+            </p>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

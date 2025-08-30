@@ -11,7 +11,7 @@
 <div class="game-container">
 <div class="text-center">
     <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
-        <h1>Jujutsu-dle</h1>
+        <img src="https://imgs.search.brave.com/jdVtihk6KNw3ODSkMUZTqXRHqbTV6ioSztmeNKbjHnI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nbWFydC5jb20v/ZmlsZXMvMjMvSnVq/dXRzdS1LYWlzZW4t/TG9nby1QTkctUGlj/LnBuZw" alt="Logo Escola Jujutsu" class="logo-img-1" />
         <form asp-controller="JujutsuDle" asp-action="Restart" method="post">
             <button type="submit" class="btn btn-sm btn-outline-secondary">Reiniciar Jogo</button>
         </form>
@@ -51,7 +51,7 @@ else
         <div class="grid-header">Ano Estreia</div>
     </div>
 
-    @foreach (var guess in Model)
+    @foreach (var guess in Model.AsEnumerable().Reverse())
 {
     <div class="grid-container">
         <div class="grid-cell @(guess.GuessedName == answer?.Name ? "correct" : "incorrect")">

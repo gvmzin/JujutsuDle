@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JujutsuDle")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c43912ff1460b57843b0cf489950444150dc8c0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94a095f5dd3352213d4dfbafdf021ee55c904f62")]
 [assembly: System.Reflection.AssemblyProductAttribute("JujutsuDle")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JujutsuDle")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
