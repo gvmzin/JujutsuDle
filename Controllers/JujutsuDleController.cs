@@ -85,14 +85,20 @@ namespace JujutsuDle.Controllers
             {
                 GuessedName = guess.Name,
                 PhotoUrl = guess.PhotoUrl,
+                
+                // MUDANÇA: Usando nosso novo método "tradutor" GetDisplayName()
                 Gender = guess.Gender == answer.Gender ? ComparisonResult.Correct : ComparisonResult.Incorrect,
-                GenderValue = guess.Gender.ToString(),
+                GenderValue = guess.Gender.GetDisplayName(),
+
                 Species = guess.Species == answer.Species ? ComparisonResult.Correct : ComparisonResult.Incorrect,
-                SpeciesValue = guess.Species.ToString(),
+                SpeciesValue = guess.Species.GetDisplayName(),
+
                 Classification = guess.Classification == answer.Classification ? ComparisonResult.Correct : ComparisonResult.Incorrect,
-                ClassificationValue = guess.Classification.ToString(),
+                ClassificationValue = guess.Classification.GetDisplayName(),
+
                 CombatStyle = guess.CombatStyle == answer.CombatStyle ? ComparisonResult.Correct : ComparisonResult.Incorrect,
-                CombatStyleValue = guess.CombatStyle.ToString(),
+                CombatStyleValue = guess.CombatStyle.GetDisplayName(),
+
                 DebutYear = guess.DebutYear == answer.DebutYear ? ComparisonResult.Correct : ComparisonResult.Incorrect,
                 DebutYearValue = guess.DebutYear,
                 DebutYearArrow = guess.DebutYear < answer.DebutYear ? "⬆️" : (guess.DebutYear > answer.DebutYear ? "⬇️" : "")
