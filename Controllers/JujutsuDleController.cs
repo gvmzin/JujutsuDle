@@ -1,9 +1,7 @@
-// Local: Controllers/JujutsuDleController.cs
-
 using JujutsuDle.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using System.Threading.Tasks; // Essencial para usar async/await
+using System.Threading.Tasks; 
 
 namespace JujutsuDle.Controllers
 {
@@ -85,8 +83,7 @@ namespace JujutsuDle.Controllers
             {
                 GuessedName = guess.Name,
                 PhotoUrl = guess.PhotoUrl,
-                
-                // MUDANÇA: Usando nosso novo método "tradutor" GetDisplayName()
+            
                 Gender = guess.Gender == answer.Gender ? ComparisonResult.Correct : ComparisonResult.Incorrect,
                 GenderValue = guess.Gender.GetDisplayName(),
 
